@@ -1,3 +1,4 @@
+import scipy
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 import matplotlib.pyplot as plt
