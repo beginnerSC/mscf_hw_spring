@@ -51,6 +51,8 @@ def draw_boosted_trees(trees, X, score=None):
 
     if score is not None:
         plt.scatter(X[:,0], X[:,1], c=score, cmap=plt.get_cmap('plasma'))
+        ax = plt.axes()
+        ax.set(aspect=1, xlim=(-4, 4), ylim=(-4, 4))
     else:
         plt.scatter(X[:,0], X[:,1])
 
@@ -109,19 +111,13 @@ def my_adaboost(X, y, B=10):
         # Find the next split, according to your current weights.
         # Hint: the returned tree supports predict()
         tree, info = find_split(X, y, wgts)
-
-        # TODO: Fill in the rest of the body of this loop to implement
-        # the AdaBoost algorithm from class
-
-        # You can introduce whatever you need here.  At the very least,
-        # it needs to result in updated wgts and
-        # an additional entry in the trees list and the alphas vector.
-
-        # TODO: You'll probably need some stuff here
-
-        alphas[b] = # TODO: Add the new tree's weight
-        trees.append() # TODO: Store the new tree
-        wgts = # TODO: Update your observation weights
+        
+        misclf = (tree.predict(X) != y)
+        eb = (wgts*misclf).sum()/wgts.sum()
+        alpha = np.log((1-eb)/eb)
+        alphas[b] = alpha# TODO: Add the new tree's weight
+        trees.append(tree) # TODO: Store the new tree
+        wgts *= np.exp(alpha*misclf)# TODO: Update your observation weights
 
     return trees, alphas
 
@@ -157,14 +153,14 @@ def predict_ada(trees, alphas, X, y=None):
 
     for b in range(B):
         # Update your score to include the contribution from tree b
-        score = # TODO: Fill in the updated score
-        preds = # TODO: Make predictions in {-1,1}
+        score += alphas[b]*trees[b].predict(X) # TODO: Fill in the updated score
+        preds = np.sign(score) # TODO: Make predictions in {-1,1}
 
         if y is not None:
             # Record the misclassification error for the predictions
             # based on thresholding the current score
-            test_err[b] = # TODO: Fill in the current misclassification error
-
+            test_err[b] = (y!=preds).mean() # TODO: Fill in the current misclassification error
+            
     if y is None:
         return score, preds
 
@@ -188,7 +184,7 @@ def calculate_partial_dependence_x1(trees, alphas, X):
 
     # Somewhere to store the partial dependence values
     pdep = np.zeros(m)
-
+    
     # We will fake a dataset and change its x1 values to match each evaluation points
     fake = X.copy()
     for i in range(m):
@@ -197,6 +193,6 @@ def calculate_partial_dependence_x1(trees, alphas, X):
         # dependence at x[i] below
         # HINT: Evaluate predict_ada on the fake data set and use
         # resulting predictions
-        pdep[i] = # TODO
-
+        pdep[i] = predict_ada(trees, alphas, fake)[1].mean()
+        
     return x, pdep
