@@ -1,3 +1,6 @@
+import scipy.stats
+import numpy as np
+
 def get_data(n):
     #prior probabilities
     pi0 = (.5,.3,.2)

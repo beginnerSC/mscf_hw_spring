@@ -1,3 +1,6 @@
+import scipy.stats
+import numpy as np
+
 def get_data(n1,n2):
     dist1 = scipy.stats.multivariate_normal(mean = np.zeros(2),
                                     cov = np.diag(np.ones(2)))
