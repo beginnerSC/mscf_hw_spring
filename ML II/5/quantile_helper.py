@@ -1,4 +1,5 @@
 import itertools
+import numpy as np
 
 def quantile_grid(x, y, q):
     """Find points closest to the quantiles of x and y.
