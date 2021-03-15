@@ -17,7 +17,7 @@ The synthetic VIX is very similar to COBE's VIX, the only difference is the numb
 
 
 
-
+----
 
 
 Our data used in this project is all from Bloomberg. 
