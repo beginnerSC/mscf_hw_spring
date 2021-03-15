@@ -1,10 +1,9 @@
-# 90 Second Presentation 
-
----
+90 Second Presentation 
+----
 
 As Jonathan was saying, VIX is usually used to estimate the future 1 month realized variance of the index. Precisely the estimator is the formula up here. This is given by CBOE's definition of VIX. 
 
-Here $O$ is the out of the money option prices, $K$ is the strike, and $T$ is the maturity which is exactly 1 month from now. 
+Here :math:`O` is the out of the money option prices, :math:`K` is the strike, and :math:`T` is the maturity which is exactly 1 month from now. 
 
 The only thing in this formula that's changing all the time is the option prices and the strikes, which I marked in the red color. Carr et al. use these sort of transformed option prices as the features. 
 
@@ -16,7 +15,10 @@ For regression II, the label is this VPR defined down here, which is a VIX-like 
 
 The synthetic VIX is very similar to COBE's VIX, the only difference is the number of options included in the summation formula up here. 
 
----
+
+
+
+
 
 Our data used in this project is all from Bloomberg. 
 
@@ -24,4 +26,3 @@ We can only get implied volatility at specific delta, which we then plug into th
 
 We had to back out the strikes from the delta, using the Black-Scholes delta formula. 
 
----
