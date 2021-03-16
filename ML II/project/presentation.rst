@@ -26,4 +26,4 @@ We can only get implied volatility at specific delta, which we then plug into th
 
 We had to back out the strikes from the delta, using the Black-Scholes delta formula. 
 
-Next I'll hand over to Raj to talk about the models. 
+Next we will hand over to Raj to talk about the models. 
