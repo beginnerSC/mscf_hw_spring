@@ -3,13 +3,13 @@
 
 As Jonathan was saying, VIX is usually used to estimate the future 1 month realized variance of the index. Precisely the estimator is the formula up here. This is given by CBOE's definition of VIX. 
 
-Here :math:`O` is the out of the money 1 month option prices, :math:`K` is the strike, and :math:`T` is the maturity which is 1 month. 
+Here :math:`O` is the out of the money 1 month option prices. 
 
 The only thing in this formula that's changing all the time is the option prices and the strikes, which I marked in the red color. Carr et al. use these sort of transformed option prices as the features. 
 
 So we have features. We also need the labels for training. 
 
-In the paper, there are regression I and regression II. They have the same features, only the labels are different. For regression I, the label is obvious. It's really just the realized variance of the index. 
+As mentioned previously, there are regression I and regression II in the paper. They have the same features, only the labels are different. For regression I, the label is obvious. It's really just the realized variance of the index. 
 
 For regression II, the label is this VPR defined down here, which is a VIX-like index squared minus the realized variance. They defined this so called synthetic VIX, which is this VIX* in the formula. 
 
