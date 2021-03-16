@@ -11,7 +11,7 @@ So we have features. We also need the labels for training.
 
 As mentioned previously, there are regression I and regression II in the paper. They have the same features, only the labels are different. For regression I, the label is obvious. It's really just the realized variance of the index. 
 
-For regression II, the label is this VPR defined down here, which is a VIX-like index squared minus the realized variance. They defined this so called synthetic VIX, which is this VIX* in the formula. 
+For regression II, the label is this VRP defined down here, which is a VIX-like index squared minus the realized variance. They defined this so called synthetic VIX, which is this VIX* in the formula. 
 
 The synthetic VIX is very similar to COBE's VIX, the only difference is the number of options included in the summation formula up here. 
 
@@ -26,3 +26,4 @@ We can only get implied volatility at specific delta, which we then plug into th
 
 We had to back out the strikes from the delta, using the Black-Scholes delta formula. 
 
+Next I'll hand over to Raj to talk about the models. 
