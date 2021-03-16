@@ -22,7 +22,7 @@ The synthetic VIX is very similar to COBE's VIX, the only difference is the numb
 
 Our data is all from Bloomberg. 
 
-We can only get implied volatility at specific delta, which we then plug into the Black-Scholes formula to get the options prices as the features. 
+We can only get implied volatility at specific delta, which we then plug into the Black-Scholes formula to get the option prices as the features. 
 
 We had to back out the strikes from the delta, using the Black-Scholes delta formula. 
 
