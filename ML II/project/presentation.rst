@@ -3,7 +3,7 @@
 
 As Jonathan was saying, VIX is usually used to estimate the future 1 month realized variance of the index. Precisely the estimator is the formula up here. This is given by CBOE's definition of VIX. 
 
-Here :math:`O` is the out of the money option prices, :math:`K` is the strike, and :math:`T` is the maturity which is exactly 1 month from now. 
+Here :math:`O` is the out of the money 1 month option prices, :math:`K` is the strike, and :math:`T` is the maturity which is 1 month. 
 
 The only thing in this formula that's changing all the time is the option prices and the strikes, which I marked in the red color. Carr et al. use these sort of transformed option prices as the features. 
 
