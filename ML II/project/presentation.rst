@@ -9,7 +9,7 @@ The only thing in this formula that's changing all the time is the option prices
 
 So we have features. We also need the labels for training. 
 
-As mentioned previously, there are regression I and regression II in the paper. They have the same features, only the labels are different. For regression I, the label is obvious. It's really just the realized variance of the index. 
+As mentioned earlier, there are regression I and regression II in the paper. They have the same features, only the labels are different. For regression I, the label is obvious. It's really just the realized variance of the index. 
 
 For regression II, the label is this VRP defined down here, which is a VIX-like index squared minus the realized variance. They defined this so called synthetic VIX, which is this VIX* in the formula. 
 
